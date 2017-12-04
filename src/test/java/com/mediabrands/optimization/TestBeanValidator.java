@@ -4,7 +4,9 @@ import com.mediabrands.optimization.dto.MessageError;
 import com.mediabrands.optimization.dto.Plan;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +40,10 @@ public class TestBeanValidator {
         ExcelFile excelFile = new ExcelFile();
 
         try {
-            List<Plan> plans = excelFile.readExcelFile("/Users/smoralesh/Documents/MediaBrands/Optimization/plans.xlsx");
+
+            File file  = new File("/Users/smoralesh/workspace/validator/src/test/resources/plans.xlsx");
+
+            List<Plan> plans = excelFile.readExcelFile(file);
 
             List<MessageError> fileValidationErrors = beanValidator.validate(plans);
 

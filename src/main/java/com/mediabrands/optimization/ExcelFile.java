@@ -16,10 +16,10 @@ import java.util.List;
 
 public class ExcelFile {
 
-    public List<Plan> readExcelFile(String filePath) throws IOException {
+    public List<Plan> readExcelFile(File file) throws IOException {
 
         List<Plan> listPlans = new ArrayList<>();
-        FileInputStream inputStream = new FileInputStream(new File(filePath));
+        FileInputStream inputStream = new FileInputStream(file);
 
         Workbook workbook = new XSSFWorkbook(inputStream);
         Sheet firstSheet = workbook.getSheetAt(0);
